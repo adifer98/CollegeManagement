@@ -1,0 +1,12 @@
+@host=http://localhost:5113
+
+
+POST {{host}}/Users
+Content-Type: application/json
+
+{
+    "Name": "Adi",
+    "Email": "adif@one1.co.il",
+    "City": "Herzliya",
+    "Role": "Student"
+}

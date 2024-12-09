@@ -1,0 +1,15 @@
+C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Application\bin\Debug\net9.0\CollegeManagement.Application.deps.json
+C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Application\bin\Debug\net9.0\CollegeManagement.Application.dll
+C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Application\bin\Debug\net9.0\CollegeManagement.Application.pdb
+C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Application\bin\Debug\net9.0\CollegeManagement.Domain.dll
+C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Application\bin\Debug\net9.0\CollegeManagement.Domain.pdb
+C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Application\obj\Debug\net9.0\CollegeManagement.Application.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Application\obj\Debug\net9.0\CollegeManagement.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Application\obj\Debug\net9.0\CollegeManagement.Application.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Application\obj\Debug\net9.0\CollegeManagement.Application.AssemblyInfo.cs
+C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Application\obj\Debug\net9.0\CollegeManagement.Application.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Application\obj\Debug\net9.0\CollegeM.349F6251.Up2Date
+C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Application\obj\Debug\net9.0\CollegeManagement.Application.dll
+C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Application\obj\Debug\net9.0\refint\CollegeManagement.Application.dll
+C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Application\obj\Debug\net9.0\CollegeManagement.Application.pdb
+C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Application\obj\Debug\net9.0\ref\CollegeManagement.Application.dll

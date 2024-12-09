@@ -1,0 +1,17 @@
+C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Infrastructure\bin\Debug\net9.0\CollegeManagement.Infrastructure.deps.json
+C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Infrastructure\bin\Debug\net9.0\CollegeManagement.Infrastructure.dll
+C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Infrastructure\bin\Debug\net9.0\CollegeManagement.Infrastructure.pdb
+C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Infrastructure\bin\Debug\net9.0\CollegeManagement.Application.dll
+C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Infrastructure\bin\Debug\net9.0\CollegeManagement.Domain.dll
+C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Infrastructure\bin\Debug\net9.0\CollegeManagement.Application.pdb
+C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Infrastructure\bin\Debug\net9.0\CollegeManagement.Domain.pdb
+C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Infrastructure\obj\Debug\net9.0\CollegeManagement.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Infrastructure\obj\Debug\net9.0\CollegeManagement.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Infrastructure\obj\Debug\net9.0\CollegeManagement.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Infrastructure\obj\Debug\net9.0\CollegeManagement.Infrastructure.AssemblyInfo.cs
+C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Infrastructure\obj\Debug\net9.0\CollegeManagement.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Infrastructure\obj\Debug\net9.0\CollegeM.6FA97A18.Up2Date
+C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Infrastructure\obj\Debug\net9.0\CollegeManagement.Infrastructure.dll
+C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Infrastructure\obj\Debug\net9.0\refint\CollegeManagement.Infrastructure.dll
+C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Infrastructure\obj\Debug\net9.0\CollegeManagement.Infrastructure.pdb
+C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Infrastructure\obj\Debug\net9.0\ref\CollegeManagement.Infrastructure.dll

@@ -1,0 +1,4 @@
+@host=http://localhost:5113
+@userId=..
+
+GET {{host}}/Users/{{userId}}

@@ -1,0 +1,12 @@
+@host=http://localhost:5113
+
+
+POST {{host}}/Courses
+Content-Type: application/json
+
+{
+    "Title": "Introduction to Computer Science",
+    "Description": "A nice course that introduces students to this interesting field.",
+    "Hours": 36,
+    "Price": 1000
+}

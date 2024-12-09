@@ -1,0 +1,11 @@
+@host=http://localhost:5113
+@userId=..
+@courseId=..
+
+POST {{host}}/Enrollments
+Content-Type: application/json
+
+{
+    "UserId": "{{userId}}",
+    "CourseId": "{{courseId}}"
+}

@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "Z8oHz5BF6adSb4YcZ7E8kJFMz30YUk7ifM/ew86xEwY=",
+  "Source": "CollegeManagement.Api",
+  "BasePath": "_content/CollegeManagement.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
