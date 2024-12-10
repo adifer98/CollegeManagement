@@ -1,6 +1,6 @@
 using CollegeManagement.Domain.Users;
 
-namespace CollegeManagement.Application.Commono.Interfaces;
+namespace CollegeManagement.Application.Common.Interfaces;
 
 public interface IUsersRepository
 {

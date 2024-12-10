@@ -1,6 +1,6 @@
-using CollegeManagement.Application.Commono.Interfaces;
+using CollegeManagement.Application.Common.Interfaces;
 using CollegeManagement.Domain.Users;
-using GymManagement.Infrastructure.Common.Persistence;
+using CollegeManagement.Infrastructure.Common.Persistence;
 
 namespace CollegeManagement.Infrastructure.Users;
 

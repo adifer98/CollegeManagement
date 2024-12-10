@@ -1,17 +1,24 @@
+using System.Reflection;
 using CollegeManagement.Application.Common.Interfaces;
 using CollegeManagement.Domain.Users;
 using Microsoft.EntityFrameworkCore;
 
-namespace GymManagement.Infrastructure.Common.Persistence;
+namespace CollegeManagement.Infrastructure.Common.Persistence;
 
-public class CollegeManagementDbContext(
-    DbContextOptions options) :
+public class CollegeManagementDbContext(DbContextOptions options) :
     DbContext(options), IUnitOfWork
 {
     public DbSet<User> Users { get; set; } = null!;
-
-    public Task CommitChangesAsync()
+    
+    public async Task CommitChangesAsync()
     {
-        throw new NotImplementedException();
+        await SaveChangesAsync();
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+
+        base.OnModelCreating(modelBuilder);
     }
 }

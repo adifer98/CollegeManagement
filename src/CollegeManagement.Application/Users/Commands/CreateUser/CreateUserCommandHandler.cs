@@ -1,5 +1,4 @@
 using CollegeManagement.Application.Common.Interfaces;
-using CollegeManagement.Application.Commono.Interfaces;
 using CollegeManagement.Domain.Users;
 using ErrorOr;
 using MediatR;

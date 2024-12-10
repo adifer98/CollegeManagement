@@ -1,5 +1,10 @@
+using System.Reflection.Metadata.Ecma335;
+using CollegeManagement.Application.Users.Commands.CreateUser;
 using CollegeManagement.Contracts.Users;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.OpenApi.Extensions;
+using DomainUserRole = CollegeManagement.Domain.Users.UserRole;
 
 namespace CollegeManagement.Api.Controllers;
 
@@ -7,11 +12,54 @@ namespace CollegeManagement.Api.Controllers;
 [ApiController]
 public class UsersController : ControllerBase
 {
-    [HttpPost]
-    public IActionResult CreateUser(CreateUserRequest request)
-    {
-        var response = new CreateUserResponse(id: Guid.NewGuid(), role: request.role);
+    private readonly ISender _mediator;
 
-        return Ok(response);
+    public UsersController(ISender mediator)
+    {
+        _mediator = mediator;
+    }
+    
+    [HttpPost]
+    public async Task<IActionResult> CreateUser(CreateUserRequest request)
+    {
+       if (!DomainUserRole.TryFromName(
+            request.role.ToString(),
+            out var role))
+        {
+            return Problem(
+                statusCode: StatusCodes.Status400BadRequest,
+                detail: "Invalid user role");
+        }
+
+        var createUserCommand = new CreateUserCommand(
+            Name: request.name,
+            Email: request.city,
+            City: request.city,
+            Role: role
+        );
+
+        var createUserResult = await _mediator.Send(createUserCommand);
+
+        if (createUserResult.IsError)
+        {
+            Problem();
+        }
+        
+        var createUserResponse = new CreateUserResponse(
+            id: createUserResult.Value.Id,
+            role: ToDto(createUserResult.Value.Role)
+        );
+
+        return Ok(createUserResponse);
+    }
+
+    private static UserRole ToDto(DomainUserRole subscriptionType)
+    {
+        return subscriptionType.Name switch
+        {
+            nameof(DomainUserRole.Student) => UserRole.Student,
+            nameof(DomainUserRole.Admin) => UserRole.Admin,
+            _ => throw new InvalidOperationException(),
+        };
     }
 }

@@ -1,19 +1,23 @@
+using CollegeManagement.Application;
+using CollegeManagement.Infrastructure;
+
+
 var builder = WebApplication.CreateBuilder(args);
 {
     builder.Services.AddControllers();
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
-    builder.Services.AddProblemDetails();
-    builder.Services.AddHttpContextAccessor();
+    // builder.Services.AddProblemDetails();
+    // builder.Services.AddHttpContextAccessor();
 
-    // builder.Services
-    //     .AddApplication()
-    //     .AddInfrastructure();
+    builder.Services
+        .AddApplication()
+        .AddInfrastructure();
 }
 
 var app = builder.Build();
 {
-    app.UseExceptionHandler();
+    // app.UseExceptionHandler();
     // app.AddInfrastructureMiddleware();
     if (app.Environment.IsDevelopment())
     {

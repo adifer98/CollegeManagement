@@ -10,3 +10,16 @@ C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Domain\obj\Debug\n
 C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Domain\obj\Debug\net9.0\CollegeManagement.Domain.pdb
 C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Domain\obj\Debug\net9.0\ref\CollegeManagement.Domain.dll
 C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Domain\obj\Debug\net9.0\CollegeManagement.Domain.csproj.AssemblyReference.cache
+C:\Users\adif\Desktop\CollegeManagement\src\CollegeManagement.Domain\bin\Debug\net9.0\CollegeManagement.Domain.deps.json
+C:\Users\adif\Desktop\CollegeManagement\src\CollegeManagement.Domain\bin\Debug\net9.0\CollegeManagement.Domain.dll
+C:\Users\adif\Desktop\CollegeManagement\src\CollegeManagement.Domain\bin\Debug\net9.0\CollegeManagement.Domain.pdb
+C:\Users\adif\Desktop\CollegeManagement\src\CollegeManagement.Domain\obj\Debug\net9.0\CollegeManagement.Domain.csproj.AssemblyReference.cache
+C:\Users\adif\Desktop\CollegeManagement\src\CollegeManagement.Domain\obj\Debug\net9.0\CollegeManagement.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adif\Desktop\CollegeManagement\src\CollegeManagement.Domain\obj\Debug\net9.0\CollegeManagement.Domain.AssemblyInfoInputs.cache
+C:\Users\adif\Desktop\CollegeManagement\src\CollegeManagement.Domain\obj\Debug\net9.0\CollegeManagement.Domain.AssemblyInfo.cs
+C:\Users\adif\Desktop\CollegeManagement\src\CollegeManagement.Domain\obj\Debug\net9.0\CollegeManagement.Domain.csproj.CoreCompileInputs.cache
+C:\Users\adif\Desktop\CollegeManagement\src\CollegeManagement.Domain\obj\Debug\net9.0\CollegeManagement.Domain.sourcelink.json
+C:\Users\adif\Desktop\CollegeManagement\src\CollegeManagement.Domain\obj\Debug\net9.0\CollegeManagement.Domain.dll
+C:\Users\adif\Desktop\CollegeManagement\src\CollegeManagement.Domain\obj\Debug\net9.0\refint\CollegeManagement.Domain.dll
+C:\Users\adif\Desktop\CollegeManagement\src\CollegeManagement.Domain\obj\Debug\net9.0\CollegeManagement.Domain.pdb
+C:\Users\adif\Desktop\CollegeManagement\src\CollegeManagement.Domain\obj\Debug\net9.0\ref\CollegeManagement.Domain.dll

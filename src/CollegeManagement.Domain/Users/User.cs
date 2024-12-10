@@ -23,4 +23,8 @@ public class User
         City = city;
         Role = role;
     }
+
+    private User()
+    {
+    }
 }
