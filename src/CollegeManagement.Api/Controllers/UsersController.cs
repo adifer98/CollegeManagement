@@ -1,6 +1,8 @@
 using System.Reflection.Metadata.Ecma335;
 using CollegeManagement.Application.Users.Commands.CreateUser;
+using CollegeManagement.Application.Users.Queries.GetUser;
 using CollegeManagement.Contracts.Users;
+using ErrorOr;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.OpenApi.Extensions;
@@ -33,7 +35,7 @@ public class UsersController : ControllerBase
 
         var createUserCommand = new CreateUserCommand(
             Name: request.name,
-            Email: request.city,
+            Email: request.email,
             City: request.city,
             Role: role
         );
@@ -45,12 +47,28 @@ public class UsersController : ControllerBase
             Problem();
         }
         
-        var createUserResponse = new CreateUserResponse(
+        var createUserResponse = new UserResponse(
             id: createUserResult.Value.Id,
+            name: createUserResult.Value.Name,
             role: ToDto(createUserResult.Value.Role)
         );
 
         return Ok(createUserResponse);
+    }
+
+    [HttpGet("{userId:guid}")]
+    public async Task<IActionResult> GetUser(Guid userId)
+    {
+        var getUserQuery = new GetUserQuery(userId);
+
+        var getUserResult = await _mediator.Send(getUserQuery);
+
+        return getUserResult.MatchFirst(
+            user => Ok(new UserResponse(
+                user.Id,
+                user.Name,
+                ToDto(user.Role))),
+            error => Problem());
     }
 
     private static UserRole ToDto(DomainUserRole subscriptionType)

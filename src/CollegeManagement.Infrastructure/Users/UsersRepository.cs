@@ -1,6 +1,7 @@
 using CollegeManagement.Application.Common.Interfaces;
 using CollegeManagement.Domain.Users;
 using CollegeManagement.Infrastructure.Common.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 namespace CollegeManagement.Infrastructure.Users;
 
@@ -25,9 +26,9 @@ public class UsersRepository : IUsersRepository
         throw new NotImplementedException();
     }
 
-    public Task<User?> GetByIdAsync(Guid id)
+    public async Task<User?> GetByIdAsync(Guid id)
     {
-        throw new NotImplementedException();
+        return await _dbContext.Users.FirstOrDefaultAsync(user => user.Id == id);
     }
 
     public Task<List<User>> ListAsync()

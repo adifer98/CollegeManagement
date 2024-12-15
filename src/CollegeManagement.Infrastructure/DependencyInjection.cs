@@ -4,6 +4,7 @@ using CollegeManagement.Infrastructure.Users;
 using CollegeManagement.Infrastructure.Common.Persistence;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
+using CollegeManagement.Infrastructure.Courses;
 
 namespace CollegeManagement.Infrastructure;
 
@@ -29,6 +30,7 @@ public static class DependencyInjection
 
 
         services.AddScoped<IUsersRepository, UsersRepository>();
+        services.AddScoped<ICoursesRepository, CoursesRepository>();
         services.AddScoped<IUnitOfWork>(serviceProvider => serviceProvider.GetRequiredService<CollegeManagementDbContext>());
 
         return services;

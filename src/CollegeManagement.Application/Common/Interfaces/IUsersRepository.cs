@@ -8,6 +8,6 @@ public interface IUsersRepository
     Task<bool> ExistsAsync(Guid id);
     Task<User?> GetByIdAsync(Guid id);
     Task<List<User>> ListAsync();
-    Task RemoveUserAsync(User subscription);
+    Task RemoveUserAsync(User user);
     Task UpdateAsync(User user);
 }

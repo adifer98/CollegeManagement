@@ -22,4 +22,8 @@ public class Course
         Hours = hours;
         Price = price;
     }
+
+    private Course()
+    {
+    }
 }

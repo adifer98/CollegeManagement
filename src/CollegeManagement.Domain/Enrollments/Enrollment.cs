@@ -16,4 +16,8 @@ public class Enrollment
         UserId = userId;
         CourseId = courseId;
     }
+
+    private Enrollment()
+    {
+    }
 }
