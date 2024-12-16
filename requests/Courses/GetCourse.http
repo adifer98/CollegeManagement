@@ -1,4 +1,4 @@
 @host=http://localhost:5113
-@courseId=31C37D2C-134B-44A7-BB9D-77DC1E3F49F6
+@courseId=af763915-2666-4b88-b58a-f71829f44814
 
 GET {{host}}/Courses/{{courseId}}

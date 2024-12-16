@@ -1,0 +1,4 @@
+@host=http://localhost:5113
+@enrollmentId=af763915-2666-4b88-b58a-f71829f44814
+
+DELETE {{host}}/Enrollments/{{enrollmentId}}

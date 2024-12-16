@@ -46,6 +46,22 @@ namespace CollegeManagement.Infrastructure.Migrations
                     b.ToTable("Courses");
                 });
 
+            modelBuilder.Entity("CollegeManagement.Domain.Enrollments.Enrollment", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CourseId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Enrollments");
+                });
+
             modelBuilder.Entity("CollegeManagement.Domain.Users.User", b =>
                 {
                     b.Property<Guid>("Id")

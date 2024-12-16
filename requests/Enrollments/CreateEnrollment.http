@@ -1,6 +1,6 @@
 @host=http://localhost:5113
-@userId=..
-@courseId=..
+@userId=d1f3bb09-61e2-4c1f-9d02-9ffaeff426e9
+@courseId=af763915-2666-4b88-b58a-f71829f44814
 
 POST {{host}}/Enrollments
 Content-Type: application/json

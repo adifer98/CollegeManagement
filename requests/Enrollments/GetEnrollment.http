@@ -1,0 +1,4 @@
+@host=http://localhost:5113
+@enrollmentId=85bc4e1c-c588-4880-9c07-11e7a58a527a
+
+GET {{host}}/Enrollments/{{enrollmentId}}

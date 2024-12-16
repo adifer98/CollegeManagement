@@ -5,7 +5,6 @@ using CollegeManagement.Contracts.Users;
 using ErrorOr;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.OpenApi.Extensions;
 using DomainUserRole = CollegeManagement.Domain.Users.UserRole;
 
 namespace CollegeManagement.Api.Controllers;
@@ -69,6 +68,12 @@ public class UsersController : ControllerBase
                 user.Name,
                 ToDto(user.Role))),
             error => Problem());
+    }
+
+    [HttpDelete("{userId:guid}")]
+    public async Task<IActionResult> DeleteUser(Guid userId)
+    {
+        return Ok();
     }
 
     private static UserRole ToDto(DomainUserRole subscriptionType)

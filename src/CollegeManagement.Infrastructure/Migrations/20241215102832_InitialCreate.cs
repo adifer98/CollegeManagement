@@ -27,6 +27,19 @@ namespace CollegeManagement.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Enrollments",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CourseId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Enrollments", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
@@ -47,6 +60,9 @@ namespace CollegeManagement.Infrastructure.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Courses");
+
+            migrationBuilder.DropTable(
+                name: "Enrollments");
 
             migrationBuilder.DropTable(
                 name: "Users");

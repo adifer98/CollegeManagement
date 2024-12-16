@@ -23,3 +23,4 @@ C:\Users\adif\Desktop\CollegeManagement\src\CollegeManagement.Domain\obj\Debug\n
 C:\Users\adif\Desktop\CollegeManagement\src\CollegeManagement.Domain\obj\Debug\net9.0\refint\CollegeManagement.Domain.dll
 C:\Users\adif\Desktop\CollegeManagement\src\CollegeManagement.Domain\obj\Debug\net9.0\CollegeManagement.Domain.pdb
 C:\Users\adif\Desktop\CollegeManagement\src\CollegeManagement.Domain\obj\Debug\net9.0\ref\CollegeManagement.Domain.dll
+C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Domain\obj\Debug\net9.0\CollegeManagement.Domain.sourcelink.json

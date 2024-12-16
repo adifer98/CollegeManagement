@@ -29,3 +29,4 @@ C:\Users\adif\Desktop\CollegeManagement\src\CollegeManagement.Application\obj\De
 C:\Users\adif\Desktop\CollegeManagement\src\CollegeManagement.Application\obj\Debug\net9.0\refint\CollegeManagement.Application.dll
 C:\Users\adif\Desktop\CollegeManagement\src\CollegeManagement.Application\obj\Debug\net9.0\CollegeManagement.Application.pdb
 C:\Users\adif\Desktop\CollegeManagement\src\CollegeManagement.Application\obj\Debug\net9.0\ref\CollegeManagement.Application.dll
+C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Application\obj\Debug\net9.0\CollegeManagement.Application.sourcelink.json

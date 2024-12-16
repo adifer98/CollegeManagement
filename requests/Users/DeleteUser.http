@@ -1,0 +1,4 @@
+@host=http://localhost:5113
+@userId=85bc4e1c-c588-4880-9c07-11e7a58a527a
+
+DELETE {{host}}/Users/{{userId}}

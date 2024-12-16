@@ -21,9 +21,11 @@ public class UsersRepository : IUsersRepository
         await _dbContext.Users.AddAsync(user);
     }
 
-    public Task<bool> ExistsAsync(Guid id)
+    public async Task<bool> ExistsAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var result = await GetByIdAsync(id);
+
+        return result is not null;
     }
 
     public async Task<User?> GetByIdAsync(Guid id)
