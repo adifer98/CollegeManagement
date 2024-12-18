@@ -1,4 +1,5 @@
 using CollegeManagement.Application.Courses.Commands.CreateCourse;
+using CollegeManagement.Application.Courses.Commands.DeleteCourse;
 using CollegeManagement.Application.Courses.Queries.GetCourse;
 using CollegeManagement.Contracts.Courses;
 using MediatR;
@@ -42,10 +43,10 @@ public class CoursesController : ControllerBase
         return Ok(createCourseResponse);
     }
 
-    [HttpGet("{userId:Guid}")]
-    public async Task<IActionResult> GetCourse(Guid userId)
+    [HttpGet("{courseId:Guid}")]
+    public async Task<IActionResult> GetCourse(Guid courseId)
     {
-        var getCourseQuery = new GetCourseQuery(userId);
+        var getCourseQuery = new GetCourseQuery(courseId);
 
         var getCourseResult = await _mediator.Send(getCourseQuery);
 
@@ -54,6 +55,19 @@ public class CoursesController : ControllerBase
                 Id: course.Id,
                 Title: course.Title
             )),
+            errors => Problem()
+        );
+    }
+
+    [HttpDelete("{courseId:Guid}")]
+    public async Task<IActionResult> DeleteCourse(Guid courseId)
+    {
+        var deleteCourseCommand = new DeleteCourseCommand(courseId);
+
+        var deleteCourseResult = await _mediator.Send(deleteCourseCommand);
+
+        return deleteCourseResult.Match<IActionResult>(
+            _ => NoContent(),
             errors => Problem()
         );
     }

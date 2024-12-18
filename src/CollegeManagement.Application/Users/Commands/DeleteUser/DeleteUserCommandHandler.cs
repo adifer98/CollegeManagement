@@ -8,10 +8,17 @@ public record DeleteUserCommandHandler
  : IRequestHandler<DeleteUserCommand, ErrorOr<Deleted>>
 {
     private readonly IUsersRepository _usersRepository;
+    private readonly IEnrollmentsRepository _enrollmentsRepository;
+    private readonly IUnitOfWork _unitOfWork;
 
-    public DeleteUserCommandHandler(IUsersRepository usersRepository)
+    public DeleteUserCommandHandler(
+        IUsersRepository usersRepository,
+        IEnrollmentsRepository enrollmentsRepository,
+        IUnitOfWork unitOfWork)
     {
         _usersRepository = usersRepository;
+        _enrollmentsRepository = enrollmentsRepository;
+        _unitOfWork = unitOfWork;
     }
     public async Task<ErrorOr<Deleted>> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
     {
@@ -22,7 +29,9 @@ public record DeleteUserCommandHandler
             return Error.NotFound(description: "User not found");
         }
 
-        
+        await _usersRepository.RemoveUserAsync(user);
+        await _enrollmentsRepository.RemoveEnrollmentsAsyncByUserId(user.Id);
+        await _unitOfWork.CommitChangesAsync();
 
         return Result.Deleted;
     }

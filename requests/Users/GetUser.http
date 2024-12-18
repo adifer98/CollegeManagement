@@ -1,4 +1,4 @@
 @host=http://localhost:5113
-@userId=85bc4e1c-c588-4880-9c07-11e7a58a527a
+@userId=55d6e480-c2c4-4dd7-b7da-ea429d43f12f
 
 GET {{host}}/Users/{{userId}}

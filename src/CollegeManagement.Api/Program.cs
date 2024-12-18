@@ -19,6 +19,7 @@ var app = builder.Build();
 {
     // app.UseExceptionHandler();
     // app.AddInfrastructureMiddleware();
+    
     if (app.Environment.IsDevelopment())
     {
         app.UseSwagger();

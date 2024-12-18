@@ -1,4 +1,4 @@
 @host=http://localhost:5113
-@courseId=af763915-2666-4b88-b58a-f71829f44814
+@courseId=89a77919-dbfb-4cfb-a93e-48fd5a592be8
 
 DELETE {{host}}/Courses/{{courseId}}

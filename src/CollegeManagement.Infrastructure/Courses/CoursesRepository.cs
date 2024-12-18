@@ -31,18 +31,22 @@ public class CoursesRepository : ICoursesRepository
         return await _dbContext.Courses.FirstOrDefaultAsync(course => course.Id == id);
     }
 
-    public Task<List<Course>> ListAsync()
+    public async Task<List<Course>> ListAsync()
     {
-        throw new NotImplementedException();
+       return await _dbContext.Courses.ToListAsync();
     }
 
     public Task RemoveCourseAsync(Course course)
     {
-        throw new NotImplementedException();
+        _dbContext.Remove(course);
+
+        return Task.CompletedTask;
     }
 
     public Task UpdateAsync(Course course)
     {
-        throw new NotImplementedException();
+        _dbContext.Update(course);
+        
+        return Task.CompletedTask;
     }
 }

@@ -15,7 +15,6 @@ public class UsersRepository : IUsersRepository
         _dbContext = dbContext;
     }
 
-
     public async Task AddUserAsync(User user)
     {
         await _dbContext.Users.AddAsync(user);
@@ -33,18 +32,22 @@ public class UsersRepository : IUsersRepository
         return await _dbContext.Users.FirstOrDefaultAsync(user => user.Id == id);
     }
 
-    public Task<List<User>> ListAsync()
+    public async Task<List<User>> ListAsync()
     {
-        throw new NotImplementedException();
+        return await _dbContext.Users.ToListAsync();
     }
 
-    public Task RemoveUserAsync(User subscription)
+    public Task RemoveUserAsync(User user)
     {
-        throw new NotImplementedException();
+        _dbContext.Remove(user);
+
+        return Task.CompletedTask;
     }
 
     public Task UpdateAsync(User user)
     {
-        throw new NotImplementedException();
+        _dbContext.Update(user);
+        
+        return Task.CompletedTask;
     }
 }

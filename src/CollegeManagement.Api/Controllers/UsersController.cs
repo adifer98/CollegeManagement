@@ -1,5 +1,6 @@
 using System.Reflection.Metadata.Ecma335;
 using CollegeManagement.Application.Users.Commands.CreateUser;
+using CollegeManagement.Application.Users.Commands.DeleteUser;
 using CollegeManagement.Application.Users.Queries.GetUser;
 using CollegeManagement.Contracts.Users;
 using ErrorOr;
@@ -62,7 +63,7 @@ public class UsersController : ControllerBase
 
         var getUserResult = await _mediator.Send(getUserQuery);
 
-        return getUserResult.MatchFirst(
+        return getUserResult.Match(
             user => Ok(new UserResponse(
                 user.Id,
                 user.Name,
@@ -73,7 +74,14 @@ public class UsersController : ControllerBase
     [HttpDelete("{userId:guid}")]
     public async Task<IActionResult> DeleteUser(Guid userId)
     {
-        return Ok();
+        var deleteUserCommand = new DeleteUserCommand(userId);
+
+        var deleteUserResult = await _mediator.Send(deleteUserCommand);
+
+        return deleteUserResult.Match<IActionResult>(
+            _ => NoContent(),
+            _ => Problem()
+        );
     }
 
     private static UserRole ToDto(DomainUserRole subscriptionType)
