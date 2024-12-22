@@ -1,3 +1,5 @@
+using CollegeManagement.Application.Enrollments.Commands.DeleteEnrollment;
+
 namespace CollegeManagement.Api.Controllers;
 
 using CollegeManagement.Application.Enrollments.Commands.CreateEnrollment;
@@ -7,8 +9,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 [Route("[controller]")]
-[ApiController]
-public class EnrollmentsController : ControllerBase
+public class EnrollmentsController : ApiController
 {
     private readonly ISender _mediator;
 
@@ -33,7 +34,7 @@ public class EnrollmentsController : ControllerBase
                 enrollment.UserId,
                 enrollment.CourseId
             )),
-            errors => Problem()
+            Problem
         );
     }
 
@@ -50,7 +51,20 @@ public class EnrollmentsController : ControllerBase
                 enrollment.UserId,
                 enrollment.CourseId
             )),
-            errors => Problem()
+            Problem
+        );
+    }
+
+    [HttpDelete("{enrollmentId:guid}")]
+    public async Task<IActionResult> DeleteEnrollment(Guid enrollmentId)
+    {
+        var deleteEnrollmentCommand = new DeleteEnrollmentCommand(enrollmentId);
+        
+        var deleteEnrollmentResult = await _mediator.Send(deleteEnrollmentCommand);
+
+        return deleteEnrollmentResult.Match(
+            _ => NoContent(),
+            Problem
         );
     }
 }

@@ -1,0 +1,55 @@
+﻿
+using ErrorOr;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+
+namespace CollegeManagement.Api.Controllers;
+
+[Route("api/[controller]")]
+[ApiController]
+public class ApiController : ControllerBase
+{
+
+    IActionResult ValidationProblem(List<Error> errors)
+    {
+        var modelStateDictionary = new ModelStateDictionary();
+
+        foreach (var error in errors)
+        {
+            modelStateDictionary.AddModelError(
+                error.Code,
+                error.Description
+            );
+        }
+
+        return ValidationProblem(modelStateDictionary);
+    }
+
+    public IActionResult Problem(List<Error> errors)
+    {
+        if (errors.Count == 0)
+        {
+            return Problem();
+        }
+
+        if (errors.All(error => error.Type == ErrorType.Validation))
+        {
+            return ValidationProblem(errors);
+        }
+        
+        return Problem(errors[0]);
+    }
+    
+    public IActionResult Problem(Error error)
+    {
+        var statusCode = error.Type switch
+        {
+            ErrorType.NotFound => StatusCodes.Status404NotFound,
+            ErrorType.Validation => StatusCodes.Status400BadRequest,
+            ErrorType.Conflict => StatusCodes.Status409Conflict,
+            _ => StatusCodes.Status500InternalServerError
+        };
+
+        return Problem(statusCode: statusCode, detail: error.Description);
+    }
+}

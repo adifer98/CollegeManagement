@@ -620,6 +620,15 @@
           }
         }
       },
+      "OneOf/3.0.216": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/OneOf.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/OneOf.dll": {}
+        }
+      },
       "System.ClientModel/1.0.0": {
         "type": "package",
         "dependencies": {
@@ -1045,6 +1054,22 @@
           }
         }
       },
+      "Throw/1.4.0": {
+        "type": "package",
+        "dependencies": {
+          "OneOf": "3.0.216"
+        },
+        "compile": {
+          "lib/net6.0/Throw.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Throw.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "CollegeManagement.Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
@@ -1065,7 +1090,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
-          "Ardalis.SmartEnum": "8.2.0"
+          "Ardalis.SmartEnum": "8.2.0",
+          "MediatR": "12.4.1",
+          "Throw": "1.4.0"
         },
         "compile": {
           "bin/placeholder/CollegeManagement.Domain.dll": {}
@@ -1999,6 +2026,21 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "OneOf/3.0.216": {
+      "sha512": "hvSxx7O9Z50ZK/HZaqxcEiO1skihnHcsziy0cVRqSq7LrETM9swcRcMZuG+0irai7jq8FYYCHTrB/pSHSah6ug==",
+      "type": "package",
+      "path": "oneof/3.0.216",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35/OneOf.dll",
+        "lib/net45/OneOf.dll",
+        "lib/netstandard1.3/OneOf.dll",
+        "lib/netstandard2.0/OneOf.dll",
+        "oneof.3.0.216.nupkg.sha512",
+        "oneof.nuspec"
+      ]
+    },
     "System.ClientModel/1.0.0": {
       "sha512": "I3CVkvxeqFYjIVEP59DnjbeoGNfo/+SZrCLpRz2v/g0gpCHaEMPtWSY0s9k/7jR1rAsLNg2z2u1JRB76tPjnIw==",
       "type": "package",
@@ -2893,6 +2935,20 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "Throw/1.4.0": {
+      "sha512": "fz2Y+LXepl0obzvZs5PAs2ZnnOF0fIpaErUQMEynMXIxQwnxaKcRgiBiKhCp4Jp2OrSlcKMwgqzAqceWOyl/hg==",
+      "type": "package",
+      "path": "throw/1.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon-square.png",
+        "lib/net6.0/Throw.dll",
+        "lib/net6.0/Throw.xml",
+        "throw.1.4.0.nupkg.sha512",
+        "throw.nuspec"
+      ]
+    },
     "CollegeManagement.Application/1.0.0": {
       "type": "project",
       "path": "../CollegeManagement.Application/CollegeManagement.Application.csproj",
@@ -2912,40 +2968,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\adif\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\adif\\Desktop\\CollegeManagement\\src\\CollegeManagement.Infrastructure\\CollegeManagement.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\CollegeManagement\\src\\CollegeManagement.Infrastructure\\CollegeManagement.Infrastructure.csproj",
       "projectName": "CollegeManagement.Infrastructure",
-      "projectPath": "C:\\Users\\adif\\Desktop\\CollegeManagement\\src\\CollegeManagement.Infrastructure\\CollegeManagement.Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\adif\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\adif\\Desktop\\CollegeManagement\\src\\CollegeManagement.Infrastructure\\obj\\",
+      "projectPath": "C:\\Users\\User\\Desktop\\CollegeManagement\\src\\CollegeManagement.Infrastructure\\CollegeManagement.Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\CollegeManagement\\src\\CollegeManagement.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
-      "UsingMicrosoftNETSdk": false,
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\adif\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\adif\\Desktop\\CollegeManagement\\src\\CollegeManagement.Application\\CollegeManagement.Application.csproj": {
-              "projectPath": "C:\\Users\\adif\\Desktop\\CollegeManagement\\src\\CollegeManagement.Application\\CollegeManagement.Application.csproj"
+            "C:\\Users\\User\\Desktop\\CollegeManagement\\src\\CollegeManagement.Application\\CollegeManagement.Application.csproj": {
+              "projectPath": "C:\\Users\\User\\Desktop\\CollegeManagement\\src\\CollegeManagement.Application\\CollegeManagement.Application.csproj"
             }
           }
         }
@@ -2958,8 +3006,9 @@
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
-        "auditMode": "direct"
-      }
+        "auditMode": "all"
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net9.0": {
@@ -2990,7 +3039,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

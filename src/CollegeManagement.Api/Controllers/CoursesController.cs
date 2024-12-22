@@ -8,8 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CollegeManagement.Api.Controllers;
 
 [Route("[controller]")]
-[ApiController]
-public class CoursesController : ControllerBase
+public class CoursesController : ApiController
 {
     private readonly ISender _mediator;
 
@@ -32,7 +31,7 @@ public class CoursesController : ControllerBase
 
         if (createCourseResult.IsError)
         {
-            return Problem();
+            return Problem(createCourseResult.Errors);
         }
 
         var createCourseResponse = new CourseResponse(
@@ -54,8 +53,8 @@ public class CoursesController : ControllerBase
             course => Ok(new CourseResponse(
                 Id: course.Id,
                 Title: course.Title
-            )),
-            errors => Problem()
+            )), 
+            Problem
         );
     }
 
@@ -68,7 +67,7 @@ public class CoursesController : ControllerBase
 
         return deleteCourseResult.Match<IActionResult>(
             _ => NoContent(),
-            errors => Problem()
+            Problem
         );
     }
 }

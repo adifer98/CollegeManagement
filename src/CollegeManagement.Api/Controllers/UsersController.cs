@@ -11,8 +11,7 @@ using DomainUserRole = CollegeManagement.Domain.Users.UserRole;
 namespace CollegeManagement.Api.Controllers;
 
 [Route("[controller]")]
-[ApiController]
-public class UsersController : ControllerBase
+public class UsersController : ApiController
 {
     private readonly ISender _mediator;
 
@@ -30,7 +29,8 @@ public class UsersController : ControllerBase
         {
             return Problem(
                 statusCode: StatusCodes.Status400BadRequest,
-                detail: "Invalid user role");
+                detail: "Invalid user role"
+            );
         }
 
         var createUserCommand = new CreateUserCommand(
@@ -44,7 +44,7 @@ public class UsersController : ControllerBase
 
         if (createUserResult.IsError)
         {
-            Problem();
+            return Problem(createUserResult.Errors);
         }
         
         var createUserResponse = new UserResponse(
@@ -68,7 +68,7 @@ public class UsersController : ControllerBase
                 user.Id,
                 user.Name,
                 ToDto(user.Role))),
-            error => Problem());
+            Problem);
     }
 
     [HttpDelete("{userId:guid}")]
@@ -80,7 +80,7 @@ public class UsersController : ControllerBase
 
         return deleteUserResult.Match<IActionResult>(
             _ => NoContent(),
-            _ => Problem()
+            Problem
         );
     }
 
