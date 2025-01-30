@@ -1,12 +1,15 @@
-using System.Reflection.Metadata.Ecma335;
+
 using CollegeManagement.Application.Users.Commands.CreateUser;
 using CollegeManagement.Application.Users.Commands.DeleteUser;
+using CollegeManagement.Application.Users.Commands.UpdateUser;
+using CollegeManagement.Application.Users.Queries.GetAllUsers;
 using CollegeManagement.Application.Users.Queries.GetUser;
 using CollegeManagement.Contracts.Users;
-using ErrorOr;
+using CollegeManagement.Domain.Users;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using DomainUserRole = CollegeManagement.Domain.Users.UserRole;
+using UserRole = CollegeManagement.Contracts.Users.UserRole;
 
 namespace CollegeManagement.Api.Controllers;
 
@@ -23,7 +26,7 @@ public class UsersController : ApiController
     [HttpPost]
     public async Task<IActionResult> CreateUser(CreateUserRequest request)
     {
-       if (!DomainUserRole.TryFromName(
+        if (!DomainUserRole.TryFromName(
             request.role.ToString(),
             out var role))
         {
@@ -50,16 +53,17 @@ public class UsersController : ApiController
         var createUserResponse = new UserResponse(
             id: createUserResult.Value.Id,
             name: createUserResult.Value.Name,
-            role: ToDto(createUserResult.Value.Role)
+            role: ToDto(createUserResult.Value.Role),
+            slug: createUserResult.Value.Slug
         );
 
         return Ok(createUserResponse);
     }
 
-    [HttpGet("{userId:guid}")]
-    public async Task<IActionResult> GetUser(Guid userId)
+    [HttpGet("{userIdOrSlug}")]
+    public async Task<IActionResult> GetUser(string userIdOrSlug)
     {
-        var getUserQuery = new GetUserQuery(userId);
+        var getUserQuery = new GetUserQuery(userIdOrSlug);
 
         var getUserResult = await _mediator.Send(getUserQuery);
 
@@ -67,14 +71,15 @@ public class UsersController : ApiController
             user => Ok(new UserResponse(
                 user.Id,
                 user.Name,
-                ToDto(user.Role))),
+                ToDto(user.Role),
+                user.Slug)),
             Problem);
     }
 
-    [HttpDelete("{userId:guid}")]
-    public async Task<IActionResult> DeleteUser(Guid userId)
+    [HttpDelete("{userIdOrSlug}")]
+    public async Task<IActionResult> DeleteUser(string userIdOrSlug)
     {
-        var deleteUserCommand = new DeleteUserCommand(userId);
+        var deleteUserCommand = new DeleteUserCommand(userIdOrSlug);
 
         var deleteUserResult = await _mediator.Send(deleteUserCommand);
 
@@ -83,6 +88,49 @@ public class UsersController : ApiController
             Problem
         );
     }
+    
+    [HttpPut("{userId:guid}")]
+    public async Task<IActionResult> UpdateUser(Guid userId, UpdateUserRequest request)
+    {
+        if (!DomainUserRole.TryFromName(
+                request.Role.ToString(),
+                out var role))
+        {
+            return Problem(
+                statusCode: StatusCodes.Status400BadRequest,
+                detail: "Invalid user role"
+            );
+        }
+        
+        var updateUserCommand = new UpdateUserCommand(
+            id: userId,
+            name: request.Name,
+            email: request.Email,
+            city: request.City,
+            role: role
+        );
+
+        var updateUserResult = await _mediator.Send(updateUserCommand);
+
+        return updateUserResult.Match<IActionResult>(
+            _ => NoContent(),
+            Problem
+        );
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetAllUsers()
+    {
+        var getAllUsersQuery = new GetAllUsersQuery();
+        
+        var getAllUsersResult = await _mediator.Send(getAllUsersQuery);
+
+        return getAllUsersResult.Match(
+            users => Ok(MapToUsersResponse(users)),
+            Problem
+        );
+
+    }
 
     private static UserRole ToDto(DomainUserRole subscriptionType)
     {
@@ -90,7 +138,19 @@ public class UsersController : ApiController
         {
             nameof(DomainUserRole.Student) => UserRole.Student,
             nameof(DomainUserRole.Admin) => UserRole.Admin,
-            _ => throw new InvalidOperationException(),
+            _ => throw new InvalidOperationException()
         };
+    }
+
+    private static UsersResponse MapToUsersResponse(List<User> users)
+    {
+        return new UsersResponse(
+            items: users.Select(user => new UserResponse(
+                id: user.Id,
+                name: user.Name,
+                role: ToDto(user.Role),
+                slug: user.Slug
+            ))
+        );
     }
 }

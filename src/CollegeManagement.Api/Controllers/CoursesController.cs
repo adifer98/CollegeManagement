@@ -1,7 +1,11 @@
+using System.Data;
 using CollegeManagement.Application.Courses.Commands.CreateCourse;
 using CollegeManagement.Application.Courses.Commands.DeleteCourse;
+using CollegeManagement.Application.Courses.Commands.UpdateCourse;
+using CollegeManagement.Application.Courses.Queries.GetAllCoursesQuery;
 using CollegeManagement.Application.Courses.Queries.GetCourse;
 using CollegeManagement.Contracts.Courses;
+using CollegeManagement.Domain.Courses;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -68,6 +72,47 @@ public class CoursesController : ApiController
         return deleteCourseResult.Match<IActionResult>(
             _ => NoContent(),
             Problem
+        );
+    }
+
+    [HttpPut("{courseId:Guid}")]
+    public async Task<IActionResult> UpdateCourse(Guid courseId, UpdateCourseRequest request)
+    {
+        var updateCourseCommand = new UpdateCourseCommand(
+            CourseId: courseId,
+            Title: request.title,
+            Description: request.description,
+            Hours: request.hours,
+            Price: request.price
+        );
+        
+        var updateCourseResult = await _mediator.Send(updateCourseCommand);
+
+        return updateCourseResult.Match(
+            _ => NoContent(),
+            Problem);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetAllCourses()
+    {
+        var getAllCoursesQuery = new GetAllCoursesQuery();
+        
+        var getAllCoursesResult = await _mediator.Send(getAllCoursesQuery);
+
+        return getAllCoursesResult.Match(
+            courses => Ok(MapToCoursesResponse(courses)),
+            Problem
+        );
+    }
+
+    private CoursesResponse MapToCoursesResponse(List<Course> courses)
+    {
+        return new CoursesResponse(
+            items: courses.Select(course => new CourseResponse(
+                Id: course.Id,
+                Title: course.Title
+            ))
         );
     }
 }

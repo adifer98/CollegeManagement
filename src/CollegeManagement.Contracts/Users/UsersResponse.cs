@@ -1,6 +1,3 @@
 ﻿namespace CollegeManagement.Contracts.Users;
 
-public class UsersResponse
-{
-    
-}
+public record UsersResponse(IEnumerable<UserResponse> items);

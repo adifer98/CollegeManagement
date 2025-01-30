@@ -4,5 +4,5 @@ using MediatR;
 namespace CollegeManagement.Application.Users.Commands.DeleteUser;
 
 public record DeleteUserCommand(
-    Guid UserId
+    string UserIdIrSlug
 ) : IRequest<ErrorOr<Deleted>>;

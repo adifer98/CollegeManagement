@@ -22,7 +22,9 @@ public record DeleteUserCommandHandler
     }
     public async Task<ErrorOr<Deleted>> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
     {
-        var user = await _usersRepository.GetByIdAsync(request.UserId);
+        var user = Guid.TryParse(request.UserIdIrSlug, out var id)
+            ? await _usersRepository.GetByIdAsync(id)
+            : await _usersRepository.GetBySlugAsync(request.UserIdIrSlug);
 
         if (user is null)
         {

@@ -31,6 +31,11 @@ public class UsersRepository : IUsersRepository
     {
         return await _dbContext.Users.FirstOrDefaultAsync(user => user.Id == id);
     }
+    
+    public async Task<User?> GetBySlugAsync(string slug)
+    {
+        return await _dbContext.Users.FirstOrDefaultAsync(user => user.Slug == slug);
+    }
 
     public async Task<List<User>> ListAsync()
     {

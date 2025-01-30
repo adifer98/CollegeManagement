@@ -1,3 +1,7 @@
-﻿namespace CollegeManagement.Application.Enrollments.Queries.GetAllEnrollments;
+﻿using CollegeManagement.Domain.Enrollments;
+using ErrorOr;
+using MediatR;
 
-public record GetAllEnrollmentsQuery();
+namespace CollegeManagement.Application.Enrollments.Queries.GetAllEnrollments;
+
+public record GetAllEnrollmentsQuery : IRequest<ErrorOr<List<Enrollment>>>;

@@ -1,3 +1,7 @@
-﻿namespace CollegeManagement.Application.Users.Queries.GetAllUsers;
+﻿using CollegeManagement.Domain.Users;
+using MediatR;
+using ErrorOr;
 
-public record GetAllUsersQuery();
+namespace CollegeManagement.Application.Users.Queries.GetAllUsers;
+
+public record GetAllUsersQuery : IRequest<ErrorOr<List<User>>>;

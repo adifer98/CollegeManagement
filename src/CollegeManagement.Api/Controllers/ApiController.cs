@@ -1,16 +1,15 @@
-﻿
-using ErrorOr;
+﻿using ErrorOr;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace CollegeManagement.Api.Controllers;
 
-[Route("api/[controller]")]
+
 [ApiController]
 public class ApiController : ControllerBase
 {
 
-    IActionResult ValidationProblem(List<Error> errors)
+    private IActionResult ValidationProblem(List<Error> errors)
     {
         var modelStateDictionary = new ModelStateDictionary();
 
@@ -25,9 +24,9 @@ public class ApiController : ControllerBase
         return ValidationProblem(modelStateDictionary);
     }
 
-    public IActionResult Problem(List<Error> errors)
+    protected IActionResult Problem(List<Error> errors)
     {
-        if (errors.Count == 0)
+        if (errors.Count is 0)
         {
             return Problem();
         }
@@ -40,7 +39,7 @@ public class ApiController : ControllerBase
         return Problem(errors[0]);
     }
     
-    public IActionResult Problem(Error error)
+    protected IActionResult Problem(Error error)
     {
         var statusCode = error.Type switch
         {

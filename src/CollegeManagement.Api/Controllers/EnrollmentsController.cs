@@ -1,12 +1,14 @@
 using CollegeManagement.Application.Enrollments.Commands.DeleteEnrollment;
-
-namespace CollegeManagement.Api.Controllers;
-
+using CollegeManagement.Application.Enrollments.Queries.GetAllEnrollments;
+using CollegeManagement.Domain.Enrollments;
 using CollegeManagement.Application.Enrollments.Commands.CreateEnrollment;
 using CollegeManagement.Application.Enrollments.Queries.GetEnrollment;
 using CollegeManagement.Contracts.Enrollments;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+
+
+namespace CollegeManagement.Api.Controllers;
 
 [Route("[controller]")]
 public class EnrollmentsController : ApiController
@@ -65,6 +67,30 @@ public class EnrollmentsController : ApiController
         return deleteEnrollmentResult.Match(
             _ => NoContent(),
             Problem
+        );
+    }
+    
+    [HttpGet]
+    public async Task<IActionResult> GetAllEnrollments()
+    {
+        var getAllEnrollmentsQuery = new GetAllEnrollmentsQuery();
+        
+        var getAllEnrollmentsResult = await _mediator.Send(getAllEnrollmentsQuery);
+
+        return getAllEnrollmentsResult.Match(
+            enrollments => Ok(MapToEnrollmentsResponse(enrollments)),
+            Problem
+        );
+    }
+
+    private static EnrollentsResponse MapToEnrollmentsResponse(List<Enrollment> enrollments)
+    {
+        return new EnrollentsResponse(
+            items: enrollments.Select(enrollment => new EnrollmentResponse(
+                Id: enrollment.Id,
+                UserId: enrollment.UserId,
+                CourseId: enrollment.CourseId
+            ))
         );
     }
 }

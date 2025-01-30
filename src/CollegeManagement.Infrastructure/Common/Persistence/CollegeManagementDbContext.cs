@@ -3,7 +3,7 @@ using CollegeManagement.Application.Common.Interfaces;
 using CollegeManagement.Domain.Courses;
 using CollegeManagement.Domain.Enrollments;
 using CollegeManagement.Domain.Users;
-using CollegeManagement.Domain.ConnectedUser;
+//using CollegeManagement.Domain.ConnectedUser;
 using Microsoft.EntityFrameworkCore;
 
 namespace CollegeManagement.Infrastructure.Common.Persistence;

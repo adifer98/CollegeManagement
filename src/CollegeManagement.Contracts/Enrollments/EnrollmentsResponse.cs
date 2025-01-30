@@ -1,3 +1,3 @@
 ﻿namespace CollegeManagement.Contracts.Enrollments;
 
-public record EnrollmentsResponse();
+public record EnrollentsResponse(IEnumerable<EnrollmentResponse> items);

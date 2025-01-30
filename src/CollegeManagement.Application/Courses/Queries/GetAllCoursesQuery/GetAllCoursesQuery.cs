@@ -1,3 +1,7 @@
-﻿namespace CollegeManagement.Application.Courses.Queries.GetAllCoursesQuery;
+﻿using CollegeManagement.Domain.Courses;
+using ErrorOr;
+using MediatR;
 
-public record GetAllCoursesQuery();
+namespace CollegeManagement.Application.Courses.Queries.GetAllCoursesQuery;
+
+public record GetAllCoursesQuery : IRequest<ErrorOr<List<Course>>>;

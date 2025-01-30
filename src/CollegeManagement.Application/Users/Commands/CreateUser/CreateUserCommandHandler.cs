@@ -15,13 +15,14 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Error
         _usersRepository = usersRepository;
         _unitOfWork = unitOfWork;
     }
-    public async Task<ErrorOr<User>> Handle(CreateUserCommand request, CancellationToken cancellationToken)
+    public async Task<ErrorOr<User>> Handle(CreateUserCommand command, CancellationToken cancellationToken)
     {
+        
         var user = new User(
-            name: request.Name,
-            email: request.Email,
-            city: request.City,
-            role: request.Role
+            name: command.Name,
+            email: command.Email,
+            city: command.City,
+            role: command.Role
         );
 
         await _usersRepository.AddUserAsync(user);

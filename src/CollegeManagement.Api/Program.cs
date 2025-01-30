@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
     builder.Services.AddControllers();
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
-    // builder.Services.AddProblemDetails();
+    builder.Services.AddProblemDetails();
     // builder.Services.AddHttpContextAccessor();
 
     builder.Services
@@ -17,7 +17,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 var app = builder.Build();
 {
-    // app.UseExceptionHandler();
+    app.UseExceptionHandler();
     // app.AddInfrastructureMiddleware();
     
     if (app.Environment.IsDevelopment())

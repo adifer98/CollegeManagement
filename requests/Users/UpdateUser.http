@@ -1,0 +1,12 @@
+﻿@host=http://localhost:5113
+@userId=..
+
+PUT {{host}}/Users/{{userId}}
+Content-Type: application/json
+
+{
+  "Name": "Adi Fermon",
+  "Email": "adifermon10@gmail.com",
+  "City": "Tel Aviv",
+  "Role": "Student"
+}

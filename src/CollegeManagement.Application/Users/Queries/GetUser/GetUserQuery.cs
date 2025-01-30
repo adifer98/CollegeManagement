@@ -4,4 +4,4 @@ using MediatR;
 
 namespace CollegeManagement.Application.Users.Queries.GetUser;
 
-public record GetUserQuery(Guid UserId) : IRequest<ErrorOr<User>>;
+public record GetUserQuery(string UserIdOrSlug) : IRequest<ErrorOr<User>>;
