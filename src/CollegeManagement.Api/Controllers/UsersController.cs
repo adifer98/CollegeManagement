@@ -13,19 +13,22 @@ using UserRole = CollegeManagement.Contracts.Users.UserRole;
 
 namespace CollegeManagement.Api.Controllers;
 
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class UsersController : ApiController
 {
     private readonly ISender _mediator;
+    private readonly ILogger<UsersController> _logger;
 
-    public UsersController(ISender mediator)
+    public UsersController(ISender mediator, ILogger<UsersController> logger)
     {
         _mediator = mediator;
+        _logger = logger;
     }
     
     [HttpPost]
     public async Task<IActionResult> CreateUser(CreateUserRequest request)
     {
+        _logger.LogInformation("Received a request to create a  user");
         if (!DomainUserRole.TryFromName(
             request.role.ToString(),
             out var role))
@@ -63,6 +66,8 @@ public class UsersController : ApiController
     [HttpGet("{userIdOrSlug}")]
     public async Task<IActionResult> GetUser(string userIdOrSlug)
     {
+        _logger.LogInformation("Received a request to get user");
+        
         var getUserQuery = new GetUserQuery(userIdOrSlug);
 
         var getUserResult = await _mediator.Send(getUserQuery);
@@ -92,6 +97,8 @@ public class UsersController : ApiController
     [HttpPut("{userId:guid}")]
     public async Task<IActionResult> UpdateUser(Guid userId, UpdateUserRequest request)
     {
+        _logger.LogInformation("Received a request to update user");
+        
         if (!DomainUserRole.TryFromName(
                 request.Role.ToString(),
                 out var role))
@@ -121,6 +128,8 @@ public class UsersController : ApiController
     [HttpGet]
     public async Task<IActionResult> GetAllUsers()
     {
+        _logger.LogInformation("Received a request to get all users");
+        
         var getAllUsersQuery = new GetAllUsersQuery();
         
         var getAllUsersResult = await _mediator.Send(getAllUsersQuery);

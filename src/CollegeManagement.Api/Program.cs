@@ -4,6 +4,9 @@ using CollegeManagement.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 {
+    builder.Logging.ClearProviders(); // Clears default providers
+    builder.Logging.AddConsole(); // Adds console logging
+    
     builder.Services.AddControllers();
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();

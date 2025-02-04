@@ -32,9 +32,26 @@ public class EnrollmentsRepository : IEnrollmentsRepository
         return await _dbContext.Enrollments.FirstOrDefaultAsync(enrollment => enrollment.Id == id);
     }
 
-    public Task<List<Enrollment>> ListAsync()
+    public async Task<List<Enrollment>> ListAsync()
     {
-        throw new NotImplementedException();
+        return await _dbContext.Enrollments.ToListAsync();
+    }
+
+    public async Task<List<Enrollment>> ListByUserIdAsync(Guid userId)
+    {
+        var enrollmentsByUser = await _dbContext.Enrollments
+            .Where(e => e.UserId == userId)
+            .ToListAsync();
+        
+        return enrollmentsByUser;
+    }
+    public async Task<List<Enrollment>> ListByCourseIdAsync(Guid courseId)
+    {
+        var enrollmentsByCourse = await _dbContext.Enrollments
+            .Where(e => e.CourseId == courseId)
+            .ToListAsync();
+        
+        return enrollmentsByCourse;
     }
 
     public Task RemoveEnrollmentAsync(Enrollment enrollment)
@@ -46,18 +63,14 @@ public class EnrollmentsRepository : IEnrollmentsRepository
 
     public async Task RemoveEnrollmentsAsyncByCourseId(Guid courseId)
     {
-        var enrollmentsToDelete = await _dbContext.Enrollments
-            .Where(e => e.CourseId == courseId)
-            .ToListAsync();
+        var enrollmentsToDelete = await ListByCourseIdAsync(courseId);
 
         _dbContext.RemoveRange(enrollmentsToDelete);
     }
 
     public async Task RemoveEnrollmentsAsyncByUserId(Guid userId)
     {
-        var enrollmentsToDelete = await _dbContext.Enrollments
-            .Where(e => e.UserId == userId)
-            .ToListAsync();
+        var enrollmentsToDelete = await ListByUserIdAsync(userId);
 
         _dbContext.RemoveRange(enrollmentsToDelete);
     }

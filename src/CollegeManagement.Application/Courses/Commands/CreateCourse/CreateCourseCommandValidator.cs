@@ -7,7 +7,7 @@ public class CreateCourseCommandValidator : AbstractValidator<CreateCourseComman
     public CreateCourseCommandValidator()
     {
         RuleFor(x => x.Title).MinimumLength(2)
-            .MaximumLength(50);
+            .MaximumLength(100);
         
         RuleFor(x => x.Hours).GreaterThanOrEqualTo(0);
         

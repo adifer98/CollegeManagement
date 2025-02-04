@@ -1,4 +1,4 @@
-using System.Data;
+
 using CollegeManagement.Application.Courses.Commands.CreateCourse;
 using CollegeManagement.Application.Courses.Commands.DeleteCourse;
 using CollegeManagement.Application.Courses.Commands.UpdateCourse;
@@ -11,19 +11,23 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CollegeManagement.Api.Controllers;
 
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class CoursesController : ApiController
 {
     private readonly ISender _mediator;
+    private readonly ILogger<CoursesController> _logger;
 
-    public CoursesController(ISender mediator)
+    public CoursesController(ISender mediator, ILogger<CoursesController> logger)
     {
         _mediator = mediator;
+        _logger = logger;
     }
 
     [HttpPost]
     public async Task<IActionResult> CreateCourse(CreateCourseRequest request)
     {
+        _logger.LogInformation("Creating new Course");
+        
         var createCourseCommand = new CreateCourseCommand(
             Title: request.Title,
             Description: request.Description,
@@ -49,6 +53,8 @@ public class CoursesController : ApiController
     [HttpGet("{courseId:Guid}")]
     public async Task<IActionResult> GetCourse(Guid courseId)
     {
+        _logger.LogInformation("Getting Course");
+        
         var getCourseQuery = new GetCourseQuery(courseId);
 
         var getCourseResult = await _mediator.Send(getCourseQuery);
@@ -65,6 +71,8 @@ public class CoursesController : ApiController
     [HttpDelete("{courseId:Guid}")]
     public async Task<IActionResult> DeleteCourse(Guid courseId)
     {
+        _logger.LogInformation("Deleting Course");
+        
         var deleteCourseCommand = new DeleteCourseCommand(courseId);
 
         var deleteCourseResult = await _mediator.Send(deleteCourseCommand);
@@ -78,6 +86,8 @@ public class CoursesController : ApiController
     [HttpPut("{courseId:Guid}")]
     public async Task<IActionResult> UpdateCourse(Guid courseId, UpdateCourseRequest request)
     {
+        _logger.LogInformation("Updating Course");
+        
         var updateCourseCommand = new UpdateCourseCommand(
             CourseId: courseId,
             Title: request.title,
@@ -96,6 +106,8 @@ public class CoursesController : ApiController
     [HttpGet]
     public async Task<IActionResult> GetAllCourses()
     {
+        _logger.LogInformation("Getting all Courses");
+        
         var getAllCoursesQuery = new GetAllCoursesQuery();
         
         var getAllCoursesResult = await _mediator.Send(getAllCoursesQuery);

@@ -8,6 +8,8 @@ public interface IEnrollmentsRepository
     Task<bool> ExistsAsync(Guid id);
     Task<Enrollment?> GetByIdAsync(Guid id);
     Task<List<Enrollment>> ListAsync();
+    Task<List<Enrollment>> ListByUserIdAsync(Guid userId);
+    Task<List<Enrollment>> ListByCourseIdAsync(Guid courseId);
     Task RemoveEnrollmentAsync(Enrollment enrollment);
     Task RemoveEnrollmentsAsyncByUserId(Guid userId);
     Task RemoveEnrollmentsAsyncByCourseId(Guid courseId);
