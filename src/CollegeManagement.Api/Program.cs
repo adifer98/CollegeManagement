@@ -21,6 +21,7 @@ var builder = WebApplication.CreateBuilder(args);
         .AddApplication()
         .AddInfrastructure();
 }
+
 var config = builder.Configuration;
 
 var key = Encoding.UTF8.GetBytes(config["Jwt:Key"]!);
