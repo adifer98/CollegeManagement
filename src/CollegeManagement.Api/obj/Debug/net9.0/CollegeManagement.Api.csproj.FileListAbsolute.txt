@@ -348,3 +348,4 @@ C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Api\bin\Debug\net9
 C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Api\bin\Debug\net9.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Api\bin\Debug\net9.0\OneOf.dll
 C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Api\bin\Debug\net9.0\Throw.dll
+C:\Users\adif\Desktop\CollegeManagement\src\CollegeManagement.Api\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
