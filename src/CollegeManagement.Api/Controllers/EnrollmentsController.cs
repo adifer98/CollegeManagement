@@ -6,6 +6,7 @@ using CollegeManagement.Application.Enrollments.Queries.GetEnrollment;
 using CollegeManagement.Application.Enrollments.Queries.GetEnrollmentsByStudent;
 using CollegeManagement.Contracts.Enrollments;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -22,6 +23,7 @@ public class EnrollmentsController : ApiController
         _logger = logger;
     }
 
+    [Authorize("Admin")]
     [HttpPost]
     public async Task<IActionResult> CreateEnrollment(CreateEnrollmentRequest request)
     {
@@ -76,6 +78,7 @@ public class EnrollmentsController : ApiController
         );
     }
 
+    [Authorize("Admin")]
     [HttpDelete("{enrollmentId:guid}")]
     public async Task<IActionResult> DeleteEnrollment(Guid enrollmentId)
     {

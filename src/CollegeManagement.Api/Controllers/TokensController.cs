@@ -2,21 +2,20 @@
 using System.Security.Claims;
 using System.Text;
 using System.Text.Json;
+using CollegeManagement.Api.Auth;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Identity.Controllers;
+namespace CollegeManagement.Api.Controllers;
 
-[Route("api/identity")]
-[ApiController]
-public class IdentityController : ControllerBase
+[Route("api/[controller]")]
+public class TokensController : ApiController
 {
     private const string TokenSecret = "ForTheLoveOfGodStoreAndLoadThisSecurely";
     private static readonly TimeSpan TokenLifetime = TimeSpan.FromHours(8);
 
-    [HttpPost("token")]
-    public IActionResult GenerateToken(
-        [FromBody]TokenGenerationRequest request)
+    [HttpPost]
+    public IActionResult GenerateToken(TokenGenerationRequest request)
     {
         var tokenHandler = new JwtSecurityTokenHandler();
         var key = Encoding.UTF8.GetBytes(TokenSecret);
@@ -24,8 +23,8 @@ public class IdentityController : ControllerBase
         var claims = new List<Claim>
         {
             new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-            new(JwtRegisteredClaimNames.Sub, request.Email),
-            new(JwtRegisteredClaimNames.Email, request.Email),
+            new(JwtRegisteredClaimNames.Sub, request.UserName),
+            new(JwtRegisteredClaimNames.UniqueName, request.UserName),
             new("userid", request.UserId.ToString())
         };
         

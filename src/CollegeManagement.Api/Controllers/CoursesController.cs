@@ -4,12 +4,15 @@ using CollegeManagement.Application.Courses.Commands.DeleteCourse;
 using CollegeManagement.Application.Courses.Commands.UpdateCourse;
 using CollegeManagement.Application.Courses.Queries.GetAllCoursesQuery;
 using CollegeManagement.Application.Courses.Queries.GetCourse;
+using CollegeManagement.Application.Courses.Queries.GetCourseRatingQuery;
 using CollegeManagement.Contracts.Courses;
 using CollegeManagement.Domain.Courses;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CollegeManagement.Api.Controllers;
+
 
 [Route("api/[controller]")]
 public class CoursesController : ApiController
@@ -22,7 +25,8 @@ public class CoursesController : ApiController
         _mediator = mediator;
         _logger = logger;
     }
-
+    
+    [Authorize("Admin")]
     [HttpPost]
     public async Task<IActionResult> CreateCourse(CreateCourseRequest request)
     {
@@ -49,7 +53,8 @@ public class CoursesController : ApiController
 
         return Ok(createCourseResponse);
     }
-
+    
+    
     [HttpGet("{courseId:Guid}")]
     public async Task<IActionResult> GetCourse(Guid courseId)
     {
@@ -68,6 +73,7 @@ public class CoursesController : ApiController
         );
     }
 
+    [Authorize("Admin")]
     [HttpDelete("{courseId:Guid}")]
     public async Task<IActionResult> DeleteCourse(Guid courseId)
     {
@@ -83,6 +89,7 @@ public class CoursesController : ApiController
         );
     }
 
+    [Authorize("Admin")]
     [HttpPut("{courseId:Guid}")]
     public async Task<IActionResult> UpdateCourse(Guid courseId, UpdateCourseRequest request)
     {
@@ -102,7 +109,8 @@ public class CoursesController : ApiController
             _ => NoContent(),
             Problem);
     }
-
+    
+    
     [HttpGet]
     public async Task<IActionResult> GetAllCourses()
     {
@@ -118,7 +126,21 @@ public class CoursesController : ApiController
         );
     }
 
-    private CoursesResponse MapToCoursesResponse(List<Course> courses)
+    [HttpGet("rating/{courseId:Guid}")]
+    public async Task<IActionResult> GetCourseRating(Guid courseId)
+    {
+        _logger.LogInformation("Getting Course rating");
+
+        var getCourseRatingQuery = new GetCourseRatingQuery(courseId);
+        
+        var getCourseRatingResult = await _mediator.Send(getCourseRatingQuery);
+
+        return getCourseRatingResult.Match(
+            rating => Ok(rating),
+            Problem);
+    }
+
+    private static CoursesResponse MapToCoursesResponse(List<Course> courses)
     {
         return new CoursesResponse(
             items: courses.Select(course => new CourseResponse(

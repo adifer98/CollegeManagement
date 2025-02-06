@@ -48,7 +48,8 @@ builder.Services.AddAuthentication(x =>
     };
 });
 
-builder.Services.AddAuthorization();
+builder.Services.AddAuthorizationBuilder()
+    .AddPolicy("Admin", policy => policy.RequireClaim("admin", "true"));
 
 // 🔹 Add Swagger with JWT Authentication
 builder.Services.AddSwaggerGen(c =>

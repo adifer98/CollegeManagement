@@ -2,6 +2,7 @@ using System.Reflection;
 using CollegeManagement.Application.Common.Interfaces;
 using CollegeManagement.Domain.Courses;
 using CollegeManagement.Domain.Enrollments;
+using CollegeManagement.Domain.Ratings;
 using CollegeManagement.Domain.Users;
 //using CollegeManagement.Domain.ConnectedUser;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +15,8 @@ public class CollegeManagementDbContext(DbContextOptions options) :
     public DbSet<User> Users { get; set; } = null!;
     public DbSet<Course> Courses { get; set; } = null!;
     public DbSet<Enrollment> Enrollments { get; set; } = null!;
+    
+    public DbSet<Rating> Ratings { get; set; } = null!;
     
     // public DbSet<ConnectedUser> ConnectedUser { get; set; } = null!;
     

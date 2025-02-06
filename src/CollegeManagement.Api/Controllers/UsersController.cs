@@ -7,6 +7,7 @@ using CollegeManagement.Application.Users.Queries.GetUser;
 using CollegeManagement.Contracts.Users;
 using CollegeManagement.Domain.Users;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using DomainUserRole = CollegeManagement.Domain.Users.UserRole;
 using UserRole = CollegeManagement.Contracts.Users.UserRole;
@@ -25,6 +26,7 @@ public class UsersController : ApiController
         _logger = logger;
     }
     
+    [Authorize("Admin")]
     [HttpPost]
     public async Task<IActionResult> CreateUser(CreateUserRequest request)
     {
@@ -62,7 +64,8 @@ public class UsersController : ApiController
 
         return Ok(createUserResponse);
     }
-
+    
+    
     [HttpGet("{userIdOrSlug}")]
     public async Task<IActionResult> GetUser(string userIdOrSlug)
     {
@@ -80,7 +83,7 @@ public class UsersController : ApiController
                 user.Slug)),
             Problem);
     }
-
+    
     [HttpDelete("{userIdOrSlug}")]
     public async Task<IActionResult> DeleteUser(string userIdOrSlug)
     {

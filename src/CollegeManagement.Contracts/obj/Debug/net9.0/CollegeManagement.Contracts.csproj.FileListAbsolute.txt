@@ -22,3 +22,15 @@ C:\Users\adif\Desktop\CollegeManagement\src\CollegeManagement.Contracts\obj\Debu
 C:\Users\adif\Desktop\CollegeManagement\src\CollegeManagement.Contracts\obj\Debug\net9.0\CollegeManagement.Contracts.pdb
 C:\Users\adif\Desktop\CollegeManagement\src\CollegeManagement.Contracts\obj\Debug\net9.0\ref\CollegeManagement.Contracts.dll
 C:\Users\User\Desktop\CollegeManagement\src\CollegeManagement.Contracts\obj\Debug\net9.0\CollegeManagement.Contracts.sourcelink.json
+C:\Users\User\Desktop\temp course\CollegeManagement\src\CollegeManagement.Contracts\bin\Debug\net9.0\CollegeManagement.Contracts.deps.json
+C:\Users\User\Desktop\temp course\CollegeManagement\src\CollegeManagement.Contracts\bin\Debug\net9.0\CollegeManagement.Contracts.dll
+C:\Users\User\Desktop\temp course\CollegeManagement\src\CollegeManagement.Contracts\bin\Debug\net9.0\CollegeManagement.Contracts.pdb
+C:\Users\User\Desktop\temp course\CollegeManagement\src\CollegeManagement.Contracts\obj\Debug\net9.0\CollegeManagement.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\temp course\CollegeManagement\src\CollegeManagement.Contracts\obj\Debug\net9.0\CollegeManagement.Contracts.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\temp course\CollegeManagement\src\CollegeManagement.Contracts\obj\Debug\net9.0\CollegeManagement.Contracts.AssemblyInfo.cs
+C:\Users\User\Desktop\temp course\CollegeManagement\src\CollegeManagement.Contracts\obj\Debug\net9.0\CollegeManagement.Contracts.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\temp course\CollegeManagement\src\CollegeManagement.Contracts\obj\Debug\net9.0\CollegeManagement.Contracts.sourcelink.json
+C:\Users\User\Desktop\temp course\CollegeManagement\src\CollegeManagement.Contracts\obj\Debug\net9.0\CollegeManagement.Contracts.dll
+C:\Users\User\Desktop\temp course\CollegeManagement\src\CollegeManagement.Contracts\obj\Debug\net9.0\refint\CollegeManagement.Contracts.dll
+C:\Users\User\Desktop\temp course\CollegeManagement\src\CollegeManagement.Contracts\obj\Debug\net9.0\CollegeManagement.Contracts.pdb
+C:\Users\User\Desktop\temp course\CollegeManagement\src\CollegeManagement.Contracts\obj\Debug\net9.0\ref\CollegeManagement.Contracts.dll
