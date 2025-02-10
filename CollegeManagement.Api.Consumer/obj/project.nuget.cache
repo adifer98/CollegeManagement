@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "zmaDFu89+zs=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\User\\Desktop\\CollegeManagement\\CollegeManagement.Api.Consumer\\CollegeManagement.Api.Consumer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\User\\.nuget\\packages\\refit\\8.0.0\\refit.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

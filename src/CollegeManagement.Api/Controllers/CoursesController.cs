@@ -7,9 +7,12 @@ using CollegeManagement.Application.Courses.Queries.GetCourse;
 using CollegeManagement.Application.Courses.Queries.GetCourseRatingQuery;
 using CollegeManagement.Contracts.Courses;
 using CollegeManagement.Domain.Courses;
+using ErrorOr;
+using FluentValidation.Results;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using OneOf.Types;
 
 namespace CollegeManagement.Api.Controllers;
 
@@ -28,6 +31,8 @@ public class CoursesController : ApiController
     
     [Authorize("Admin")]
     [HttpPost]
+    [ProducesResponseType(typeof(CourseResponse),StatusCodes.Status201Created)]
+    [ProducesResponseType(typeof(ErrorType),StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> CreateCourse(CreateCourseRequest request)
     {
         _logger.LogInformation("Creating new Course");

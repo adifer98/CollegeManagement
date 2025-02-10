@@ -1,0 +1,158 @@
+{
+  "version": 3,
+  "targets": {
+    "net9.0": {
+      "Refit/8.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Refit.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Refit.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.0/refit.props": {},
+          "buildTransitive/netstandard2.0/refit.targets": {}
+        }
+      },
+      "CollegeManagement.Api.SDK/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "CollegeManagement.Contracts": "1.0.0",
+          "Refit": "8.0.0"
+        },
+        "compile": {
+          "bin/placeholder/CollegeManagement.Api.SDK.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CollegeManagement.Api.SDK.dll": {}
+        }
+      },
+      "CollegeManagement.Contracts/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/CollegeManagement.Contracts.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CollegeManagement.Contracts.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Refit/8.0.0": {
+      "sha512": "gXRmIy3Va0mwwr8usnqVRQFoFIJaJGlWTTXBlwxIkHB/xwXnq1Ybs1YNA2BM1O4G46JLLlGjg6YOwrTZusuY3Q==",
+      "type": "package",
+      "path": "refit/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE/LICENSE",
+        "README.md",
+        "analyzers/dotnet/roslyn3.8/cs/InterfaceStubGeneratorV1.dll",
+        "analyzers/dotnet/roslyn4.1/cs/InterfaceStubGeneratorV2.dll",
+        "build/netstandard2.0/refit.targets",
+        "buildTransitive/netstandard2.0/refit.props",
+        "buildTransitive/netstandard2.0/refit.targets",
+        "lib/net462/Refit.dll",
+        "lib/net462/Refit.xml",
+        "lib/net6.0/Refit.dll",
+        "lib/net6.0/Refit.xml",
+        "lib/net8.0/Refit.dll",
+        "lib/net8.0/Refit.xml",
+        "lib/netstandard2.0/Refit.dll",
+        "lib/netstandard2.0/Refit.xml",
+        "refit.8.0.0.nupkg.sha512",
+        "refit.nuspec",
+        "refit_logo.png"
+      ]
+    },
+    "CollegeManagement.Api.SDK/1.0.0": {
+      "type": "project",
+      "path": "../SDK/CollegeManagement.Api.SDK/CollegeManagement.Api.SDK.csproj",
+      "msbuildProject": "../SDK/CollegeManagement.Api.SDK/CollegeManagement.Api.SDK.csproj"
+    },
+    "CollegeManagement.Contracts/1.0.0": {
+      "type": "project",
+      "path": "../src/CollegeManagement.Contracts/CollegeManagement.Contracts.csproj",
+      "msbuildProject": "../src/CollegeManagement.Contracts/CollegeManagement.Contracts.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net9.0": [
+      "CollegeManagement.Api.SDK >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\User\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\CollegeManagement\\CollegeManagement.Api.Consumer\\CollegeManagement.Api.Consumer.csproj",
+      "projectName": "CollegeManagement.Api.Consumer",
+      "projectPath": "C:\\Users\\User\\Desktop\\CollegeManagement\\CollegeManagement.Api.Consumer\\CollegeManagement.Api.Consumer.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\CollegeManagement\\CollegeManagement.Api.Consumer\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net9.0"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "projectReferences": {
+            "C:\\Users\\User\\Desktop\\CollegeManagement\\SDK\\CollegeManagement.Api.SDK\\CollegeManagement.Api.SDK.csproj": {
+              "projectPath": "C:\\Users\\User\\Desktop\\CollegeManagement\\SDK\\CollegeManagement.Api.SDK\\CollegeManagement.Api.SDK.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "all"
+      },
+      "SdkAnalysisLevel": "9.0.100"
+    },
+    "frameworks": {
+      "net9.0": {
+        "targetAlias": "net9.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
