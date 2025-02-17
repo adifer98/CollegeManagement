@@ -28,10 +28,10 @@ public class AuthTokenProvider
         }
 
         await Lock.WaitAsync();
-        var response = await _httpClient.PostAsJsonAsync("https://localhost:5003/token", new
+        var response = await _httpClient.PostAsJsonAsync("http://localhost:5113/api/Tokens", new
         {
-            userid = "d8566de3-b1a6-4a9b-b842-8e3887a82e41",
-            email = "nick@nickchapsas.com",
+            userId = "d8566de3-b1a6-4a9b-b842-8e3887a82e41",
+            userName = "adifer98",
             customClaims = new Dictionary<string, object>
             {
                 { "admin", true },

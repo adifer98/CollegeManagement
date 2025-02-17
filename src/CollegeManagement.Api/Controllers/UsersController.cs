@@ -149,7 +149,7 @@ public class UsersController : ApiController
         return subscriptionType.Name switch
         {
             nameof(DomainUserRole.Student) => UserRole.Student,
-            nameof(DomainUserRole.Admin) => UserRole.Admin,
+            nameof(DomainUserRole.Teacher) => UserRole.Teacher,
             _ => throw new InvalidOperationException()
         };
     }

@@ -6,5 +6,5 @@ namespace CollegeManagement.Contracts.Users;
 public enum UserRole
 {
     Student,
-    Admin
+    Teacher
 }

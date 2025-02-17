@@ -5242,24 +5242,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\adif\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\adif\\Desktop\\CollegeManagement\\src\\CollegeManagement.Api\\CollegeManagement.Api.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\CollegeManagement\\src\\CollegeManagement.Api\\CollegeManagement.Api.csproj",
       "projectName": "CollegeManagement.Api",
-      "projectPath": "C:\\Users\\adif\\Desktop\\CollegeManagement\\src\\CollegeManagement.Api\\CollegeManagement.Api.csproj",
-      "packagesPath": "C:\\Users\\adif\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\adif\\Desktop\\CollegeManagement\\src\\CollegeManagement.Api\\obj\\",
+      "projectPath": "C:\\Users\\User\\Desktop\\CollegeManagement\\src\\CollegeManagement.Api\\CollegeManagement.Api.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\CollegeManagement\\src\\CollegeManagement.Api\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\adif\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5273,14 +5268,14 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\adif\\Desktop\\CollegeManagement\\src\\CollegeManagement.Application\\CollegeManagement.Application.csproj": {
-              "projectPath": "C:\\Users\\adif\\Desktop\\CollegeManagement\\src\\CollegeManagement.Application\\CollegeManagement.Application.csproj"
+            "C:\\Users\\User\\Desktop\\CollegeManagement\\src\\CollegeManagement.Application\\CollegeManagement.Application.csproj": {
+              "projectPath": "C:\\Users\\User\\Desktop\\CollegeManagement\\src\\CollegeManagement.Application\\CollegeManagement.Application.csproj"
             },
-            "C:\\Users\\adif\\Desktop\\CollegeManagement\\src\\CollegeManagement.Contracts\\CollegeManagement.Contracts.csproj": {
-              "projectPath": "C:\\Users\\adif\\Desktop\\CollegeManagement\\src\\CollegeManagement.Contracts\\CollegeManagement.Contracts.csproj"
+            "C:\\Users\\User\\Desktop\\CollegeManagement\\src\\CollegeManagement.Contracts\\CollegeManagement.Contracts.csproj": {
+              "projectPath": "C:\\Users\\User\\Desktop\\CollegeManagement\\src\\CollegeManagement.Contracts\\CollegeManagement.Contracts.csproj"
             },
-            "C:\\Users\\adif\\Desktop\\CollegeManagement\\src\\CollegeManagement.Infrastructure\\CollegeManagement.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\adif\\Desktop\\CollegeManagement\\src\\CollegeManagement.Infrastructure\\CollegeManagement.Infrastructure.csproj"
+            "C:\\Users\\User\\Desktop\\CollegeManagement\\src\\CollegeManagement.Infrastructure\\CollegeManagement.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\User\\Desktop\\CollegeManagement\\src\\CollegeManagement.Infrastructure\\CollegeManagement.Infrastructure.csproj"
             }
           }
         }
@@ -5293,7 +5288,7 @@
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
-        "auditMode": "direct"
+        "auditMode": "all"
       },
       "SdkAnalysisLevel": "9.0.100"
     },
@@ -5343,7 +5338,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
